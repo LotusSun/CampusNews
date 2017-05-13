@@ -7,6 +7,7 @@
     tools:context="com.lotus.campusnews.MainActivity">
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/Toolbar_height">
     </android.support.v7.widget.Toolbar>
@@ -14,18 +15,23 @@
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation_bar_container"
+        android:layout_below="@id/toolbar">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            >
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bottom_navigation_bar_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_navigation_height">
+        android:layout_height="@dimen/bottom_navigation_height"
+        android:layout_alignParentBottom="true">
 
     </com.ashokvarma.bottomnavigation.BottomNavigationBar>
 </RelativeLayout>
