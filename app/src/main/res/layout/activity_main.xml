@@ -7,25 +7,26 @@
     tools:context="com.lotus.campusnews.MainActivity">
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/Toolbar_height">
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/toolbar_deafault"
+        android:elevation="@dimen/default_elevation">
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_refresh"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_alignParentBottom="true">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/list_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.design.widget.BottomNavigationView>
 
-    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_navigation_height">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation_bar"
+        android:layout_below="@id/toolbar">
 
-    </com.ashokvarma.bottomnavigation.BottomNavigationBar>
+    </FrameLayout>
 </RelativeLayout>
