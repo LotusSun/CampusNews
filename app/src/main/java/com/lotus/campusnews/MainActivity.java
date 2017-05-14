@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialRegister() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_search);
     }
 
 }
