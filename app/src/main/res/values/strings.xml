@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">CampusNews</string>
+    <string name="app_name">校园知乎</string>
     <string name="searchstr">搜索</string>
-    <string name="news">新闻</string>
+    <string name="news">资讯</string>
+    <string name="campus_news">资讯</string>
+    <string name="discover">发现</string>
     <string name="user_infor">用户</string>
 </resources>

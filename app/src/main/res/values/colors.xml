@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="toolbar_deafault">#1c8aeb</color>
+    <color name="default_white">#ffffff</color>
+    <color name="icon_unclick">#d7d7d7</color>
+    <color name="icon_click">#1c8aeb</color>
 </resources>
