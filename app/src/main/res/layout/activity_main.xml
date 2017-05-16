@@ -28,19 +28,14 @@
 
     </android.support.design.widget.BottomNavigationView>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_refresh"
+    <FrameLayout
+        android:id="@+id/main_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_navigation"
         android:layout_below="@id/toolbar_search">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/list_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="@dimen/toolbar_height"
