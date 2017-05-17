@@ -5,4 +5,7 @@
     <string name="campus_news">资讯</string>
     <string name="discover">发现</string>
     <string name="user_infor">用户</string>
+
+    <!--text-->
+    <string name="test_text">Cheap bus passes, housing benefit and help to own a home are part of its offer of a "brighter future"</string>
 </resources>

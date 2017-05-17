@@ -1,4 +1,9 @@
-package com.lotus.campusnews;
+
+/*
+ * Copyright (c) 2017. Lotus Sun. All Rights Reserved.
+ */
+
+package com.lotus.campusnews.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
@@ -6,6 +11,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+
+import com.lotus.campusnews.R;
 
 
 public class MainActivity extends AppCompatActivity {

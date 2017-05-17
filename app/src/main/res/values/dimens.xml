@@ -5,4 +5,13 @@
     <dimen name="toolbar_height">56dp</dimen>
     <dimen name="navigation_height">50dp</dimen>
     <dimen name="default_elevation">4dp</dimen>
+    <!--cardView-->
+    <dimen name="default_cardview_margin">15dp</dimen>
+    <dimen name="default_cardview_radius">10dp</dimen>
+    <dimen name="default_cardview_elevation">4dp</dimen>
+    <dimen name="default_cardview_height">320dp</dimen>
+    <dimen name="card_title_textsize">28sp</dimen>
+    <dimen name="card_content_textsiza">16sp</dimen>
+    <dimen name="card_titlecontent_margin">15dp</dimen>
+    <dimen name="card_image_height">200dp</dimen>
 </resources>
