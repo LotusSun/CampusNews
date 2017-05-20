@@ -24,10 +24,12 @@ import java.util.List;
  */
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
+    private final NewsClickListener mListener;
     private List<BBCArticles> mData = new ArrayList<>();
 
-    public NewsAdapter(List<BBCArticles> mData) {
+    public NewsAdapter(List<BBCArticles> mData, NewsClickListener listener) {
         this.mData = mData;
+        mListener = listener;
     }
 
     @Override
@@ -51,7 +53,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
         return mData.size();
     }
 
-    public class Holder extends ViewHolder {
+    public BBCArticles getSelectedArticle(int position) {
+        return mData.get(position);
+    }
+
+    public interface NewsClickListener {
+        void onClick(int position);
+    }
+
+    public class Holder extends ViewHolder implements View.OnClickListener {
         private ImageView image;
         private TextView title, descroption;
 
@@ -60,6 +70,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
             image = (ImageView) itemView.findViewById(R.id.card_image);
             title = (TextView) itemView.findViewById(R.id.card_title);
             descroption = (TextView) itemView.findViewById(R.id.card_content);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            mListener.onClick(getLayoutPosition());
         }
     }
 }

@@ -12,4 +12,8 @@ public class Constants {
     public static class HTTP {
         public static final String BASE_URL = "https://newsapi.org";
     }
+
+    public static class ConstString {
+        public static final String SELECTED_ARTICLE = "selectedArticle";
+    }
 }
