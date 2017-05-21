@@ -18,7 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.lotus.campusnews.R;
+import com.lotus.campusnews.ui.fragment.DiscoverFragment;
 import com.lotus.campusnews.ui.fragment.NewsFragment;
+import com.lotus.campusnews.ui.fragment.UserFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         setTabSelect(2);
                         break;
                 }
-                return false;
+                return true;
             }
         });
     }
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         hideFragments(transaction);
         switch (index) {
             case 0:
+                toolbar.setTitle(getResources().getString(R.string.news));
                 if (newsFrag == null) {
                     newsFrag = new NewsFragment();
                     transaction.add(R.id.main_frame, newsFrag);
@@ -86,16 +89,19 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case 1:
+                toolbar.setTitle(getResources().getString(R.string.discover));
                 if (discoverFrag == null) {
-                    discoverFrag = new NewsFragment();
+                    discoverFrag = new DiscoverFragment();
                     transaction.add(R.id.main_frame, discoverFrag);
                 } else {
                     transaction.show(discoverFrag);
                 }
                 break;
             case 2:
+                toolbar.setTitle(getResources().getString(R.string.user_infor));
+
                 if (usersFrag == null) {
-                    usersFrag = new NewsFragment();
+                    usersFrag = new UserFragment();
                     transaction.add(R.id.main_frame, usersFrag);
                 } else {
                     transaction.show(usersFrag);

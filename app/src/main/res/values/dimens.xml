@@ -14,4 +14,6 @@
     <dimen name="card_content_textsiza">16sp</dimen>
     <dimen name="card_titlecontent_margin">10dp</dimen>
     <dimen name="card_image_height">200dp</dimen>
+    <!--ViewFlipper-->
+    <dimen name="viewfilpper_image_height">150dp</dimen>
 </resources>
