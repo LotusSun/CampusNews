@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 2:
                 toolbar.setTitle(getResources().getString(R.string.user_infor));
-
                 if (usersFrag == null) {
                     usersFrag = new UserFragment();
                     transaction.add(R.id.main_frame, usersFrag);

@@ -1,20 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
 
     <ViewFlipper
+
         android:id="@+id/discover_viewflipper"
         android:layout_width="match_parent"
         android:layout_height="@dimen/viewfilpper_image_height">
 
+
+        <ImageView
+            android:id="@+id/iv_show"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/img1"
+             />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/img2" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/img3" />
+
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/img4" />
+
+
     </ViewFlipper>
 
-    <GridView
-        android:id="@+id/discover_grid"
+    <LinearLayout
+        android:id="@+id/show_dot"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/discover_viewflipper">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
-    </GridView>
-</RelativeLayout>
+        <View
+            android:id="@+id/dot1"
+            style="@style/dot_style"
+            android:background="@drawable/dot_focused" />
+
+        <View
+            android:id="@+id/dot2"
+            style="@style/dot_style" />
+
+        <View
+            android:id="@+id/dot3"
+            style="@style/dot_style" />
+
+        <View
+            android:id="@+id/dot4"
+            style="@style/dot_style" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/book_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="校图书馆" />
+
+        <Button
+            android:id="@+id/university_video"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="校宣传片" />
+
+        <Button
+            android:id="@+id/score_serach"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="成绩查询" />
+    </LinearLayout>
+
+
+</LinearLayout>
