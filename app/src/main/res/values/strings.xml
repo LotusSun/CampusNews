@@ -1,3 +1,7 @@
+<!--
+  ~ Copyright (c) 2017. Lotus Sun. All Rights Reserved.
+  -->
+
 <resources>
     <string name="login">登录</string>
     <string name="app_name">校园知乎</string>

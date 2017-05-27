@@ -17,30 +17,22 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.SimpleAdapter;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.lotus.campusnews.R;
-import com.lotus.campusnews.ui.activity.ScoreSearchActivity;
-import com.lotus.campusnews.ui.activity.VideoDemoActivity;
 import com.lotus.campusnews.ui.activity.WebViewActivity;
+import com.lotus.campusnews.utils.SimpleAdapterUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class DiscoverFragment extends Fragment {
-    private int[] imgs = {  R.drawable.img1, R.drawable.img2,
-            R.drawable.img3, R.drawable.img4, };
-    private Button btn_video_university;
-    private Button btn_book_search;
-    private Button btn_score_search;
-    private ViewFlipper viewFlipper;
-    private List<View> mDotList;//存放小点的的集合
     private final static int NUM = 4;//总图片的数量
-    private float x, y;//用来记录在ViewFlipper中按下和弹起的位置
-
     private static final int AUTO = 0x01;
     /**
      * 向左滑动 上一张的标记：PREVIOUS=2
@@ -50,6 +42,13 @@ public class DiscoverFragment extends Fragment {
      * 向右滑动 下一张的标记：NEXT=3
      */
     private static final int NEXT = 0x03;
+    private int[] imgs = {R.drawable.img1, R.drawable.img2,
+            R.drawable.img3, R.drawable.img4,};
+    private String[] itemText = {"图书查询", "校园通知", "成绩查询"};
+    private ViewFlipper viewFlipper;
+    private GridView gridView;
+    private List<View> mDotList;//存放小点的的集合
+    private float x, y;//用来记录在ViewFlipper中按下和弹起的位置
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
@@ -81,52 +80,41 @@ public class DiscoverFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.discover_fragment, container, false);
         initView(view);
-        initData();
-
+        showGridView();
         return view;
 
     }
 
-    private void initData() {
-
-        btn_book_search.setOnClickListener(BookSearch);
-        btn_video_university.setOnClickListener(VideoUniversity);
-        btn_score_search.setOnClickListener(ScoreSearch);
+    private void showGridView() {
+        List<Object[]> itemValues = new ArrayList<Object[]>();
+        itemValues.add(itemText);
+        int[] to = {R.id.gridview_item_text};
+        int resource = R.layout.grid_item;
+        SimpleAdapter simpleAdapter = SimpleAdapterUtil.create(getActivity(), itemValues, resource, to);
+        gridView.setAdapter(simpleAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent();
+                        intent.setClass(getActivity(), WebViewActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        Toast.makeText(getActivity(), "1", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(getActivity(), "2", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
     }
 
-    Button.OnClickListener ScoreSearch = new Button.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent();
-            intent.setClass(view.getContext(), ScoreSearchActivity.class);
-            startActivity(intent);
-
-        }
-    };
-
-    Button.OnClickListener VideoUniversity = new Button.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent();
-            intent.setClass(view.getContext(), VideoDemoActivity.class);
-            startActivity(intent);
-        }
-    };
-    Button.OnClickListener BookSearch = new Button.OnClickListener() {
-
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent();
-            intent.setClass(view.getContext(), WebViewActivity.class);
-            startActivity(intent);
-        }
-    };
-
     private void initView(View view) {
-        btn_score_search = (Button) view.findViewById(R.id.score_serach);
         viewFlipper = (ViewFlipper) view.findViewById(R.id.discover_viewflipper);
-        btn_book_search = (Button) view.findViewById(R.id.book_search);
-        btn_video_university = (Button) view.findViewById(R.id.university_video);
+        gridView = (GridView) view.findViewById(R.id.discover_gridview);
         mDotList = new ArrayList<>();
         mDotList.add(view.findViewById(R.id.dot1));
         mDotList.add(view.findViewById(R.id.dot2));
@@ -136,7 +124,7 @@ public class DiscoverFragment extends Fragment {
         sendMes();
     }
 
-    public void sendMes() {
+    private void sendMes() {
         Message msgs = new Message();
         msgs.what = AUTO;
         //发送延迟消息，做到轮播的效果
@@ -151,7 +139,6 @@ public class DiscoverFragment extends Fragment {
 
                     case MotionEvent.ACTION_DOWN:
                         x = event.getX();
-                        // Toast.makeText(view.getContext(), "down"+event.getX(), Toast.LENGTH_LONG).show();
                         break;
                     case MotionEvent.ACTION_UP:
                         y = event.getX();
@@ -164,7 +151,6 @@ public class DiscoverFragment extends Fragment {
                         }
                         break;
                 }
-
                 return true;
             }
         });

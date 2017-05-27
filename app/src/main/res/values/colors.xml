@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2017. Lotus Sun. All Rights Reserved.
+  -->
+
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
@@ -7,4 +11,5 @@
     <color name="default_white">#ffffff</color>
     <color name="icon_unclick">#d7d7d7</color>
     <color name="icon_click">#1c8aeb</color>
+    <color name="yellow">#ffd54f</color>
 </resources>

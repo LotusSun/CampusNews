@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2017. Lotus Sun. All Rights Reserved.
+ */
+
 package com.lotus.campusnews;
 
 import android.app.Application;

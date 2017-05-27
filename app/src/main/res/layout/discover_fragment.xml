@@ -1,7 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+<!--
+  ~ Copyright (c) 2017. Lotus Sun. All Rights Reserved.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
 
     <ViewFlipper
 
@@ -17,21 +21,21 @@
             android:contentDescription="@null"
             android:scaleType="fitXY"
             android:src="@drawable/img1"
-             />
+            />
 
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@null"
             android:scaleType="fitXY"
-            android:src="@drawable/img2" />
+            android:src="@drawable/img2"/>
 
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@null"
             android:scaleType="fitXY"
-            android:src="@drawable/img3" />
+            android:src="@drawable/img3"/>
 
 
         <ImageView
@@ -39,7 +43,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@null"
             android:scaleType="fitXY"
-            android:src="@drawable/img4" />
+            android:src="@drawable/img4"/>
 
 
     </ViewFlipper>
@@ -48,55 +52,40 @@
         android:id="@+id/show_dot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/discover_viewflipper"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <View
             android:id="@+id/dot1"
             style="@style/dot_style"
-            android:background="@drawable/dot_focused" />
+            android:background="@drawable/dot_focused"/>
 
         <View
             android:id="@+id/dot2"
-            style="@style/dot_style" />
+            style="@style/dot_style"/>
 
         <View
             android:id="@+id/dot3"
-            style="@style/dot_style" />
+            style="@style/dot_style"/>
 
         <View
             android:id="@+id/dot4"
-            style="@style/dot_style" />
+            style="@style/dot_style"/>
 
     </LinearLayout>
 
-    <LinearLayout
+    <GridView
+        android:id="@+id/discover_gridview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/show_dot"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="3"
+        android:verticalSpacing="10dp"></GridView>
 
-        <Button
-            android:id="@+id/book_search"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="校图书馆" />
-
-        <Button
-            android:id="@+id/university_video"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="校宣传片" />
-
-        <Button
-            android:id="@+id/score_serach"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="成绩查询" />
-    </LinearLayout>
-
-
-</LinearLayout>
+</RelativeLayout>
