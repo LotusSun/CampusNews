@@ -8,7 +8,6 @@ import com.lotus.campusnews.service.NewsService;
 import com.lotus.campusnews.utils.Constants;
 
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -25,7 +24,6 @@ public class RestManager {
              retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.HTTP.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
             mNewsService = retrofit.create(NewsService.class);
         }

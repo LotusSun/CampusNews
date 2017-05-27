@@ -24,7 +24,9 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.lotus.campusnews.R;
+import com.lotus.campusnews.ui.activity.CampusNoticeActivity;
 import com.lotus.campusnews.ui.activity.WebViewActivity;
+import com.lotus.campusnews.utils.Constants;
 import com.lotus.campusnews.utils.SimpleAdapterUtil;
 
 import java.util.ArrayList;
@@ -99,10 +101,13 @@ public class DiscoverFragment extends Fragment {
                     case 0:
                         Intent intent = new Intent();
                         intent.setClass(getActivity(), WebViewActivity.class);
+                        intent.putExtra("url", Constants.ConstString.BookSearch);
                         startActivity(intent);
                         break;
                     case 1:
-                        Toast.makeText(getActivity(), "1", Toast.LENGTH_SHORT).show();
+                        Intent intent2 = new Intent();
+                        intent2.setClass(getActivity(), CampusNoticeActivity.class);
+                        startActivity(intent2);
                         break;
                     case 2:
                         Toast.makeText(getActivity(), "2", Toast.LENGTH_SHORT).show();

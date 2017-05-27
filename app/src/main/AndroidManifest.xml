@@ -69,7 +69,7 @@
         <activity android:name=".ui.activity.WebViewActivity"/>
         <activity android:name=".ui.activity.VideoDemoActivity"/>
         <activity android:name=".ui.activity.ScoreSearchActivity"/>
-
+        <activity android:name=".ui.activity.CampusNoticeActivity"/>
     </application>
 
 </manifest>
